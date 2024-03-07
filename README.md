@@ -1,1 +1,1 @@
-# Spring Boot | Java 21 | MongoDB
+# Spring Boot | Java | MongoDB
