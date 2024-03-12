@@ -1,8 +1,10 @@
 package br.com.treinamento.model;
 
+import br.com.treinamento.dto.ClientDTO;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import org.springframework.beans.BeanUtils;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -20,6 +22,10 @@ public class Client implements Serializable {
     private String cpf;
     private String email;
     private String phone;
+
+    public Client (ClientDTO entityDTO){
+        BeanUtils.copyProperties(entityDTO, this);
+    }
 
     public Client() {
         super();
