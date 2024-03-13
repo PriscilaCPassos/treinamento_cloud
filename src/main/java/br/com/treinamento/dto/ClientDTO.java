@@ -23,21 +23,9 @@ public class ClientDTO implements Serializable {
         private String email;
         private String phone;
 
-
-        // Convertendo objetos de uma classe para outra classe.
         public  ClientDTO (Client entity){
         BeanUtils.copyProperties(entity, this);
 
         }
-
-
-        // OU ...
-       /* public ClientDTO(Client client) {
-            this.id = client.getId();
-            this.name = client.getName();
-            this.email = client.getEmail();
-            this.cpf = client.getCpf();
-            this.phone = client.getPhone();
-        } */
 
 }

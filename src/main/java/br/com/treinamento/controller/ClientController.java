@@ -1,10 +1,8 @@
 package br.com.treinamento.controller;
 
 import br.com.treinamento.dto.ClientDTO;
-import br.com.treinamento.model.Client;
 import br.com.treinamento.repository.ClientRepository;
 import br.com.treinamento.service.ClientService;
-import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

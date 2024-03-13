@@ -2,7 +2,6 @@ package br.com.treinamento.controller;
 
 import br.com.treinamento.StartupApplicationTests;
 import br.com.treinamento.dto.ClientDTO;
-import br.com.treinamento.model.Client;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
