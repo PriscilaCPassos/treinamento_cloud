@@ -25,14 +25,13 @@ public class ClientDTO implements Serializable {
 
 
         // Convertendo objetos de uma classe para outra classe.
-        public  ClientDTO (Client entity){   // Constructor que recebe uma instância de Client como parâmetro.
+        public  ClientDTO (Client entity){
         BeanUtils.copyProperties(entity, this);
 
         }
 
 
-
-        // Criando um constructor de ClientDTO que irá receber um client.
+        // OU ...
        /* public ClientDTO(Client client) {
             this.id = client.getId();
             this.name = client.getName();

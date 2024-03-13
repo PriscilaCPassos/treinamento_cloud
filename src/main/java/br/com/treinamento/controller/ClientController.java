@@ -1,10 +1,13 @@
 package br.com.treinamento.controller;
 
+import br.com.treinamento.dto.ClientDTO;
 import br.com.treinamento.model.Client;
 import br.com.treinamento.repository.ClientRepository;
 import br.com.treinamento.service.ClientService;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,8 +24,8 @@ public class ClientController {
 
         // Buscar Todos
         @GetMapping
-        public List<Client> findAll() {
-                return service.findAll();
+        public ResponseEntity <List<ClientDTO>> findAll() {
+                return new ResponseEntity<>(service.findAll(), HttpStatus.OK);
                 /*return Arrays.asList(Client.builder()
                         .name("Priscila")
                         .email("priscila.passos@gmail.com")
@@ -32,23 +35,23 @@ public class ClientController {
 
        // Buscar por Id
        @GetMapping("/{id}")
-        public Client findById(@PathVariable String id){
-                return service.findById(id);
+        public ResponseEntity <ClientDTO> findById(@PathVariable String id){
+         return ResponseEntity.status(HttpStatus.OK).body(service.findById(id));
         }
 
         // Criar
         @PostMapping
-        public Client create(@RequestBody Client entity) {
-                entity.setId(ObjectId.get().toString());
-               return service.create(entity);
+        public ResponseEntity <ClientDTO> create(@RequestBody ClientDTO entity) {
+               // entity.setId(ObjectId.get().toString());
+               return ResponseEntity.status(HttpStatus.OK).body(service.create(entity));
                // return new Client();
         }
 
 
         // Atualizar
         @PutMapping("/{id}")
-        public Client updateClient(@PathVariable String id, @RequestBody Client client){
-            return service.updateClient(id, client);
+        public ResponseEntity <ClientDTO> updateClient(@PathVariable String id, @RequestBody ClientDTO clientDTO){
+            return ResponseEntity.status(HttpStatus.OK).body(service.updateClient(id, clientDTO));
 
         }
 

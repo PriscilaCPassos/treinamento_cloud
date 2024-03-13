@@ -1,6 +1,7 @@
 package br.com.treinamento.controller;
 
 import br.com.treinamento.StartupApplicationTests;
+import br.com.treinamento.dto.ClientDTO;
 import br.com.treinamento.model.Client;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
@@ -60,7 +61,7 @@ public class ClientControllerTests extends StartupApplicationTests {
     public void testCreateClient() throws Exception {
         this.mockMvc.perform( MockMvcRequestBuilders
                         .post("/clients")
-                        .content(asJsonString(new Client(null, "Priscila", "02564897523", "priscila.passos@gmail.com", "9994545429")))
+                        .content(asJsonString(new ClientDTO(null, "Priscila", "02564897523", "priscila.passos@gmail.com", "9994545429")))
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON))
                         .andExpect(status().isOk())
@@ -75,7 +76,7 @@ public class ClientControllerTests extends StartupApplicationTests {
 
         this.mockMvc.perform( MockMvcRequestBuilders
                         .put("/clients/65ef7b883836e27f35eee099")
-                        .content(asJsonString(new Client(null, "Maria", "02564857525", "maria.novaes@gmail.com", "9994545428")))
+                        .content(asJsonString(new ClientDTO(null, "Maria", "02564857525", "maria.novaes@gmail.com", "9994545428")))
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON))
                         .andExpect(status().isOk())
@@ -86,7 +87,7 @@ public class ClientControllerTests extends StartupApplicationTests {
 
     @Test
     public void testDeleteClient() throws Exception {
-        String clientId =  "65ef7c693e74a65a83a08263";
+        String clientId =  "65f094382847844b678e2e93";
 
         this.mockMvc.perform( MockMvcRequestBuilders
                         .delete("/clients/" + clientId)
